@@ -24,6 +24,11 @@ test.describe('Portfolio website', () => {
     }
   });
 
+  test('website automation page opens', async ({ page }) => {
+  await page.goto('/qa-automation-website.html');
+  await expect(page.locator('h1').first()).toBeVisible();
+});
+
   test('page has no horizontal scroll on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
